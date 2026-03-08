@@ -2,22 +2,17 @@
   RewriteEngine On
   RewriteBase /
 
-  # =========================================================================
-  # 1. PASO A LA API (HONO)
-  # =========================================================================
-  # Si la petición empieza por /api, detenemos las reglas aquí.
-  # Esto evita que Astro (o el fallback de la SPA) capture la petición y
-  # permite que Passenger WSGI (que maneja Hono) la atienda.
-  RewriteCond %{REQUEST_URI} ^/api [NC]
-  RewriteRule ^ - [L]
+  # 1. Aseguramos que la aplicación Node (Hono) SÍ pueda ejecutarse en /api
+  <Location /api>
+    PassengerEnabled on
+  </Location>
 
-  # =========================================================================
-  # 2. ENRUTAMIENTO FRONTEND (ASTRO)
-  # =========================================================================
-  # Si el archivo o directorio solicitado NO existe físicamente...
+  # 2. Apagamos Passenger para que NO intercepte los estáticos de Astro en la raíz
+  PassengerEnabled off
+
+  # 3. Regla para SPA (Astro) si el archivo físico no existe
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  # ...redirigimos a index.html para que Astro (o el router del cliente)
-  # maneje la URL (evita el error 404 al recargar la página).
+  RewriteCond %{REQUEST_URI} !^/api [NC]
   RewriteRule ^ index.html [QSA,L]
 </IfModule>
