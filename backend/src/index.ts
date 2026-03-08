@@ -4,7 +4,11 @@ import { Hono } from 'hono'
 const app = new Hono()
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
+  return c.text('Hello from Hono (Root) - Passenger Stripped /api!')
+})
+
+app.get('/api', (c) => {
+  return c.text('Hello from Hono (/api)!')
 })
 
 serve({
