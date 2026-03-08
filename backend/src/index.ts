@@ -1,27 +1,27 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { trimTrailingSlash } from 'hono/trailing-slash'
+import { cors } from 'hono/cors'
 
-const app = new Hono()
+const app = new Hono().basePath('/api')
+
+app.use('*', trimTrailingSlash())
+
+app.use('*', cors({
+  origin: ['https://safeevent.rsanjur.com'],
+  credentials: true,
+}))
 
 app.get('/', (c) => {
-  return c.text('Hello from Hono (Root)!')
-})
-
-app.get('/api', (c) => {
-  return c.text('Hello from Hono (/api)!')
-})
-
-app.get('/api/', (c) => {
-  return c.text('Hello from Hono (/api/) con barra al final!')
-})
-
-app.all('*', (c) => {
-  return c.text(`404 Custom - Debug Info: Method=${c.req.method}, Path=${c.req.path}, URL=${c.req.url}`)
+  return c.json({
+    message: 'Hello from Hono API!',
+    status: 'success'
+  })
 })
 
 serve({
   fetch: app.fetch,
-  port: 3000
+  port: process.env.PORT ? parseInt(process.env.PORT) : 3000
 }, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
+  console.log(`Server is running on port ${info.port}`)
 })
