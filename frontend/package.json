@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
-    "@astrojs/svelte": "^7.2.5",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -20,5 +19,8 @@
     "svelte": "^5.53.7",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@astrojs/svelte": "^7.2.5"
   }
 }

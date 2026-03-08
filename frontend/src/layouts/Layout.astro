@@ -14,7 +14,25 @@ const { title = 'SafeEvent - Tu evento con nosotros.' } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>{title}</title>
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute('data-theme', theme);
+          window._toggleTheme = function () {
+            const element = document.documentElement;
+            const next = element.getAttribute("data-theme") === "light" ? "dark" : "light";
+            element.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            console.log("fine")
+          };
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <slot />

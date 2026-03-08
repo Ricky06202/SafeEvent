@@ -3,6 +3,7 @@ import react from 'react';
 export default () => {
     const [name, setName] = react.useState("test");
     const [aviso, setAviso] = react.useState("test");
+    const toggleTheme = () => {window._toggleTheme()}
     return(
     <header className="header bg-gray-500 rounded-xl m-5 p-2  justify-between items-center flex-row flex ">
         <div className="left">
@@ -11,7 +12,8 @@ export default () => {
         <div className="mid">
             <h1 className='text-bold text-3xl bg-gray-600 shadow-2xl rounded-xl shadow-black p-2 text-red-500'>{aviso}</h1>
         </div>
-        <div className="right">
+        <div className="right  flex-row flex items-center">
+            <button className="bg-amber-50 rounded-xs " onClick={toggleTheme}>🌓</button>
             {
                 name ? 
                 <><h1 className='text-bold text-3xl p-2 text-pink-300'>{name}</h1></> 
