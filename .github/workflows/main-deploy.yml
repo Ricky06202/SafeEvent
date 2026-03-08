@@ -51,6 +51,8 @@ jobs:
         run: |
           npm install
           npm run build
+          cp package.json dist/
+          cp package-lock.json dist/
 
       - name: Deploy Backend to cPanel (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
