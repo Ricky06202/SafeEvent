@@ -4,11 +4,15 @@ import { Hono } from 'hono'
 const app = new Hono()
 
 app.get('/', (c) => {
-  return c.text('Hello from Hono (Root) - Passenger Stripped /api!')
+  return c.text('Hello from Hono (Root)!')
 })
 
 app.get('/api', (c) => {
   return c.text('Hello from Hono (/api)!')
+})
+
+app.all('*', (c) => {
+  return c.text(`404 Custom - Debug Info: Method=${c.req.method}, Path=${c.req.path}, URL=${c.req.url}`)
 })
 
 serve({
