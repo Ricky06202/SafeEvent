@@ -10,9 +10,9 @@ export default () => {
     }
 
     return(
-    <header className="header divMain rounded-xl m-5 p-2  border-gray-500 border-1 shadow-2xl shadow-black justify-between items-center flex-row flex ">
+    <header className="header divMain rounded-xl m-5 p-2  border-gray-500 border-1 shadow-xs shadow-black justify-between items-center flex-row flex ">
         <div className="left">
-            <h1 className="text-2xl text-teal-300 p-2">SafeEvent</h1>
+            <h1 className="text-2xl title p-2">SafeEvent</h1>
         </div>
         <div className="mid">
             {aviso[0] && name && <button className='text-bold text-3xl bg-gray-600 shadow-2xl rounded-xl shadow-black p-2 text-red-500' onClick={() => irAEvento(aviso[1])}>{aviso[0]}</button>}

@@ -1,8 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.jsx";
+import { date } from "astro:schema";
+
+
+const events = [{
+  title: "Prueba 1",
+  id: "qw51f5",
+  date: new Date("2024-06-30T18:00:00Z"),
+  participants: 10,
+  entries: 100
+}] //obtener eventos desde la base de datos
 ---
 
 <Layout title="SafeEvent">
   <Header client:load />
+  <main>
+    <div class="div2 rounded-xl p-1 m-5 flex flex-col items-center">
+      <div class="div3 rounded-xl p-3 m-5 flex flex-col items-center">
+        <h1 class="h1 text-2xl">Bienvenido a <a class="title">SafeEvent</a></h1>
+        <p class="p text-xl">Tu solución para manejar eventos de forma segura y eficiente.</p>
+      </div>
+      <div class="div3 rounded-xl p-3 m-5 flex flex-col items-center p-5 m-2 py-2">
+        <h1 class="h1 text-2xl">¿No tienes idea de qué hacer?</h1>
+        <h1 class="h1 text-4xl py-2 bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">Próximos eventos</h1>
+        <div class="div4 rounded-2xl p-3 m-5 flex flex-col items-center w-full">
+          {events.map(e=>{
+            return(
+              <a class="div5 rounded-xl p-3 m-5 flex flex-col items-center" href={`/event/${e.id}`}>
+                <div class="w-full flex items-center justify-between">
+                  <h1 class="h1 text-2xl mr-3">{e.title}</h1>
+                  <span class="text-xs opacity-80">{e.entries - e.participants} restantes</span>
+                </div>
+                <p class="p text-xl">{e.date.toLocaleString()}</p>
+              </a>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
