@@ -2,7 +2,7 @@ import react from 'react';
 
 export default () => {
     const [name, setName] = react.useState("test");
-    const [aviso, setAviso] = react.useState("test");
+    const [aviso, setAviso] = react.useState("");
     const toggleTheme = () => {window._toggleTheme()}
     return(
     <header className="header bg-gray-500 rounded-xl m-5 p-2  justify-between items-center flex-row flex ">
@@ -10,7 +10,7 @@ export default () => {
             <h1 className="text-2xl text-teal-300 p-2">SafeEvent</h1>
         </div>
         <div className="mid">
-            <h1 className='text-bold text-3xl bg-gray-600 shadow-2xl rounded-xl shadow-black p-2 text-red-500'>{aviso}</h1>
+            {aviso && <h1 className='text-bold text-3xl bg-gray-600 shadow-2xl rounded-xl shadow-black p-2 text-red-500'>{aviso}</h1>}
         </div>
         <div className="right  flex-row flex items-center">
             <button className="bg-amber-50 rounded-xs " onClick={toggleTheme}>🌓</button>
