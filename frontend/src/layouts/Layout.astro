@@ -28,7 +28,6 @@ const { title = 'SafeEvent - Tu evento con nosotros.' } = Astro.props
             const next = element.getAttribute("data-theme") === "light" ? "dark" : "light";
             element.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            console.log("fine")
           };
         } catch (e) {}
       })();

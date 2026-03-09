@@ -3,16 +3,25 @@
 :root{
   --bg: #d6d8cb;
   --text: #111827;
-  --muted: #6b7280;
-  --accent: #2563eb;
-  transition: background-color .2s ease, color .2s ease;
+  --divMain: #9ea5b4;
+  --div2: #828a9b;
+  transition: background-color .2s ease-in, color .2s ease-in;
 }
 
 [data-theme="dark"]{
   --bg: #0b1220;
   --text: #e6eef8;
-  --muted: #9ca3af;
-  --accent: #4f9bff;
+  --divMain: #484252;
+  --div2: #403441;
+}
+
+
+.divMain{
+  background-color: var(--divMain);
+}
+
+.div2{
+  background-color: var(--div2);
 }
 
 body{
