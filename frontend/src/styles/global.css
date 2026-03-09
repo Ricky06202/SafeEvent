@@ -2,9 +2,12 @@
 
 :root{
   --bg: #d6d8cb;
-  --text: #111827;
-  --divMain: #9ea5b4;
-  --div2: #828a9b;
+  --text: #05070e;
+  --divMain: #52699b;
+  --div2: #3c4d74;
+  --div3: #2f3f69;
+  --div4: #1c3264;
+  --div5: #102a6b;
   transition: background-color .2s ease-in, color .2s ease-in;
 }
 
@@ -13,16 +16,35 @@
   --text: #e6eef8;
   --divMain: #484252;
   --div2: #403441;
+  --div3: #2e2533;
+  --div4: #241d2a;
+  --div5: #1a1520;
 }
 
+.title {
+  background: linear-gradient(to right, #34d399, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 
 .divMain{
   background-color: var(--divMain);
 }
-
 .div2{
   background-color: var(--div2);
 }
+.div3{
+  background-color: var(--div3);
+}
+.div4{
+  background-color: var(--div4);
+}
+.div5{
+  background-color: var(--div5);
+}
+
 
 body{
   background-color: var(--bg);
