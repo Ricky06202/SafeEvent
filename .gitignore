@@ -53,6 +53,12 @@ web-build/
 .dev.vars
 
 # ==========================
+# Tauri
+# ==========================
+src-tauri/target/
+src-tauri/Cargo.lock
+
+# ==========================
 # Logs & Testing
 # ==========================
 logs/
