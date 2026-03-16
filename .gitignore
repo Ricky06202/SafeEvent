@@ -57,6 +57,7 @@ web-build/
 # ==========================
 src-tauri/target/
 src-tauri/Cargo.lock
+src-tauri/gen/
 
 # ==========================
 # Logs & Testing
