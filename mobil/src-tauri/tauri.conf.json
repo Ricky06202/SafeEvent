@@ -1,20 +1,21 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "identifier": "com.safeevent.app",
-  "build": {
-    "devUrl": "http://localhost:4321",
-    "frontendDist": "../dist",
-    "beforeDevCommand": "bun run dev",
-    "beforeBuildCommand": "bun run build"
-  },
   "productName": "SafeEvent",
   "version": "1.0.0",
+  "identifier": "com.safeevent.scanner",
+  "build": {
+    "beforeDevCommand": "bun run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
+  },
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
         "title": "SafeEvent",
-        "width": 800,
-        "height": 600,
+        "width": 400,
+        "height": 700,
         "resizable": true,
         "fullscreen": false
       }
